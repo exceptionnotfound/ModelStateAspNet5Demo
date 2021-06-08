@@ -1,3 +1,29 @@
 ﻿<h2>Movies Index</h2>
 
 <a asp-action="Add" asp-controller="Movie">Add Movie</a>
+
+@{ 
+    AddMovieVM movie = TempData.Get<AddMovieVM>("AddedMovie");
+}
+
+@if(movie != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>ReleaseDate</th>
+                <th>Minutes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Description</td>
+                <td>@movie.ReleaseDate</td>
+                <td>@movie.RuntimeMinutes</td>
+            </tr>
+        </tbody>
+    </table>
+}

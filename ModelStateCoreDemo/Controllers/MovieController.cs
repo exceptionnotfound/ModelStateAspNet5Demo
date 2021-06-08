@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModelStateCoreDemo.Extensions;
 using ModelStateCoreDemo.ViewModels;
 
 namespace ModelStateCoreDemo.Controllers
@@ -30,6 +31,8 @@ namespace ModelStateCoreDemo.Controllers
             {
                 return View("Add", model);
             }
+
+            TempData.Put("AddedMovie", model);
 
             return RedirectToAction("Index");
         }
